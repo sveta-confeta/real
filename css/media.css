@@ -1,0 +1,43 @@
+@media (max-width:1200px){
+    .container{
+        width: 830px; /*когда не хватает карточкам места,мы просто резко переориентируем 
+        ширину контейнера, что она стала такой,чтоб карточки смотрелись 2 шт в ряду аккуратно без дырок*/
+    }
+}
+
+@media (max-width:830px){
+    .sidebar{
+        /* display: none; /*делаем сайтбар
+        видимым и смотрим, чтобы он на странице выглядел красиво*/
+        margin-left: 0 !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding:15px;
+        background-color: #fff;
+        box-shadow: 0px 0px 20px 4px rgb(0 0 0 / 37%);
+        overflow-y: scroll;
+        bottom: 0; /*чтобы скролилось*/
+        transform: translateX(-150%); /*чтобы сайтбар уезжал в лево и прятался*/
+        transition:  0.5s ease-in ;
+    }
+
+    .toggle-sidebar{
+        display: block;
+    }
+
+    .sidebar_mobile-active{ /**/
+        transform: translateX(0%);/*чтобы сайтбар по клику выезжал на страницу*/
+    }
+    .container{
+        max-width: 600px;
+    }
+}
+
+@media (max-width:599px){
+    .cards-holder{  /*в теге main*/
+       flex-direction: column;
+       margin: 0 auto;
+
+    }
+}

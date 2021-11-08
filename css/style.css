@@ -1,0 +1,594 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color:  #F4F4F4;
+    margin: 0;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+   
+    padding: 60px 15px;
+}
+
+.flex_wrapper{
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+
+.main{
+    max-width: 870px;
+
+}
+
+.main + .sidebar{
+    margin-left: 30px;
+}
+
+.cards-holder{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.cards-holder .card{
+    margin-bottom: 30px;
+}
+
+.sidebar{
+    width: 270px;
+    min-width:200px;/* это размер для адаптива, чтоб меньше не сплющивался при уменьшении экрана*/
+
+}
+
+a.card_link{
+    display: inline-block;
+    text-decoration: none;
+    transition:0.5s;
+}
+a.card_link:hover{
+
+    opacity: 0.8;
+    transform: translateY(-5px);
+}
+
+.card{
+background-color: #fff;
+max-width: 270px;
+position: relative;/*родитель кардАбсолют*/
+}
+
+.card_absolute{
+  display: flex;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  right: 15px;
+  
+}
+
+.card_badge{
+    
+    border-radius: 4px;
+    height: 22px;
+    padding: 0 10px;
+    line-height: 23px;
+    font-size: 14px;
+    
+}
+.card_badge:first-child{
+    margin-right: 10px;
+}
+
+.card_badge--class{
+    background-color:#FFCF26;
+    color:#000;
+}
+
+.card_badge--credit{
+    background-color: #11BE75;
+    color:#fff;
+}
+
+
+
+.card_content{
+    padding: 15px 15px 20px;
+
+}
+
+.card_title{
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.16;
+    color: #000;
+}
+
+.card_term{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.14; /* НАЧАЛЬНОЕ 16px делим на 14*/
+    margin-bottom: 10px;
+    color: #000;
+
+}
+
+
+
+.card_metro{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.14; /* НАЧАЛЬНОЕ 16px делим на 14*/
+    margin-bottom: 10px;
+    color: #000;
+
+}
+.card_metro::before{
+    content:'';
+    display: inline-block;
+    vertical-align: baseline;
+    width: 16px;
+    height: 11px;
+    margin-right: 10px;
+    background-image:url('./../img/design/Metro.svg');
+    background-repeat: no-repeat;
+}
+
+.card_address{
+ color:#777777;
+ font-size: 14px;
+ line-height: 1.14;
+}
+
+.show_more{
+    width: 100%;
+    height: 80px;
+    background: #E5E5E5;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #4290C9;
+    border: none;
+
+    cursor: pointer;
+    transition: 0.5s;
+
+}  
+
+.show_more:hover{
+    background:#dadada;
+}
+.show_more img{
+    margin-right: 10px;
+    vertical-align: middle;
+} 
+
+.hidden_cards{
+    display: none !important;
+}
+
+/*sidebar*/
+.widget + .widget{  /*второй виджет и от него отступ вверх*/
+  margin-top: 30px;
+}
+
+
+.widget_title{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.16;
+    color:#000;
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.widget_title::after{
+    content:'';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right:0;
+    top: 0;
+    background-image:url('./../img/design/chevron-up.svg');
+
+}
+
+.widget_title-active::after{ /*стрелка переворачивается по клику*/
+    transform: rotate(180deg);
+}
+
+.widget_body-hidden{
+display: none;
+}
+
+
+
+
+.location_btn{
+     flex-grow: 1;
+    height: 50px;
+    padding: 0 15px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 50px;
+    border: none;
+    color: #3C3C3C;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.location_btn:hover{
+    background-color:#ffd02652;
+}
+
+.location_checkbox{ /*скрываем чекбоксы бесследно*/
+ width: 1px;
+ height: 1px;
+ position: absolute;
+ opacity: 0;
+ appearance: none;
+}
+
+.location_checkbox:checked+.location_btn{
+    background-color:#FFCF26;
+}
+
+.location_checkbox:checked+.location_btn:hover{
+    background-color:#b2cf0e;
+}
+
+
+
+ 
+.location_row{
+    display: flex;
+}
+
+.location_row:first-child{
+border-radius: 4px 4px 0 0;
+overflow: hidden;
+border:1px solid #D6D6D6 ;
+
+}
+
+.location_row:last-child{
+    border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    border:1px solid #D6D6D6 ;
+    border-top: none;
+}
+
+/* radio*/
+.radio{
+    display: block;
+    cursor: pointer;
+}
+.radio + .radio{
+    margin-top: 15px;
+}
+
+.radio_title{
+   
+    font-weight: normal;
+font-size: 16px;
+line-height: 1.18;
+
+color: #3C3C3C;
+
+}
+
+.radio_real:checked ~ .radio_title{/*знак тильда помогает нам выбрать соседа */
+    font-weight: 500;
+
+}
+
+
+.radio_fake{
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+   
+    border:1px solid #777777;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+
+.radio_real{  /*реальная радиокнопка скрыта,..*/
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+}
+
+.radio_real:checked + .radio_fake{
+    background-color: #FFE074;
+    
+    
+}
+                                    /* + это когда элемент не внутри а рядом*/
+.radio_real:checked + .radio_fake::before{ /*..но когда она выбрана,то у радиофэйка будет кружок внутри*/
+  content:"";
+  width: 8px;
+  height: 8px;
+  background: #3C3C3C;
+  border-radius: 50%;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50% ,-50%); /*выравниваем кружок по центру*/
+ 
+  
+}
+
+/*checkbox*/
+
+.checkbox{
+    display: block;
+    cursor: pointer;
+}
+
+.checkbox + .checkbox{
+
+    margin-top: 15px;
+}
+
+.checkbox_title{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.18;
+    
+    color: #3C3C3C;
+}
+.checkbox_hidden{
+    display: none;
+}
+
+.checkbox_real:checked ~ .checkbox_title{/*знак тильда помогает нам выбрать соседа */
+    font-weight: 500;
+
+}
+
+.checkbox_real{  /*реальная радиокнопка скрыта,..*/
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+}
+
+.checkbox_fake{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+   
+    border:1px solid #777777;
+    display: inline-block;
+    border-radius: 2px;
+    position: relative;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+
+.checkbox_real:checked + .checkbox_fake{
+    background-color: #FFE074;
+    position: relative;
+}
+
+.checkbox_real:checked + .checkbox_fake::before{
+    content:"";
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-image: url(./../img/design/check.svg);
+}
+
+.widget_hidden{
+    display: none;
+}
+
+.widget_show-hidden{
+    display: inline-block;
+    background:transparent;
+    border:none;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.19;
+color: #4290C9;
+cursor: pointer;
+transition: 0.5s;
+margin-top: 15px;
+padding: 0;
+}
+
+.widget_show-hidden:hover{
+    color: #1fbe0a;
+    text-decoration: underline;
+}
+
+/*toggle*/
+
+.toggle{
+    cursor: pointer;
+}
+
+.toggle_title{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.18;
+    
+    color: #3C3C3C;
+}
+
+.toggle_real:checked ~ .toggle_title{/*знак тильда помогает нам выбрать соседа */
+    font-weight: 500;
+
+}
+
+.toggle_real{  /*реальная радиокнопка скрыта,..*/
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    opacity: 0;
+    appearance: none;
+}
+
+.toggle_fake{
+    width: 37px;
+    height: 20px;
+    background:#C4C4C4;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: bottom;
+    margin-right: 10px;
+}
+
+.toggle_fake::before{
+    content:"";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background:#3c3c3c;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: 0.5s;
+}
+
+.toggle_real:checked + .toggle_fake{
+    background:#FFE074;
+}
+
+.toggle_real:checked + .toggle_fake::before{
+    left: 19px;
+    
+}
+/*form*/
+
+.form-btn{
+    height: 50px;
+    background-color: transparent;
+    text-align: center;
+    border: 1px solid #d6D6D6;
+    border-radius:4px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+color:#3C3C3C;
+transition:0.5s;
+}
+
+.form-btn + .form-btn{
+    margin-top: 10px;
+}
+
+.form-btn:hover{
+    background-color: rgb(214, 213, 213);
+}
+
+.form-btn img{
+    margin-right: 6px;
+    display:inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.form_btn-submit{
+    background:#FFCF26;
+    border:none;
+    color:black;
+}
+
+.form_btn-submit:hover{
+    background:#7bc21dc0;
+}
+
+/*Button Toggle Sidebar = */
+
+.toggle-sidebar{
+    display: none; /* на большой ширине экрана кнопка скрыта, а в медиа прописываем ширину
+    экрана,когда она появляется*/
+    position: fixed;/* чтобы кнопка при скролле всегда была вверху и доступна*/
+    z-index: 9;
+    right: 15px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    border:none;
+    padding: 0;
+    
+    
+}
+
+.menu-icon-wrapper{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-icon{
+    position: relative;
+    width: 30px;
+    height: 5px;
+    background-color: rgb(122, 122, 122);
+}
+
+.menu-icon::before{
+    position: absolute;
+    left:0;
+    top: -10px;
+    content:"";
+    width: 30px;
+    height: 5px;
+    background-color: rgb(122, 122, 122);
+    transition:transform top 0.2s ease-in,top 0.2s linear 0.2s;
+}
+
+.menu-icon::after{
+    position: absolute;
+    left:0;
+    top: 10px;
+    content:"";
+    width: 30px;
+    height: 5px;
+    background-color: rgb(122, 122, 122);
+    transition:transform top 0.2s ease-in,top 0.2s linear 0.2s;
+}
+
+
+
+
+.menu-icon.menu-icon-active{
+    background-color:transparent;
+}
+
+.menu-icon.menu-icon-active::before{
+   transform: rotate(45deg);
+   top: 0;
+   transition: top 0.2s linear,transform 0.2s ease-in 0.2s;
+}
+
+.menu-icon.menu-icon-active::after{
+    transform: rotate(-45deg);
+    top: 0;
+    transition: top 0.2s linear,transform 0.2s ease-in 0.2s;
+ }
